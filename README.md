@@ -1,6 +1,6 @@
 ## Purpose
 
-Library CRUD App to demonstrate **React-Redux** with **Typescript**, **React-Router** included as well. This project written for blog post at [ogzhanolguncu.com](ogzhanolguncu.com)
+Library CRUD App to demonstrate **React-Redux** with **Typescript**, **React-Router** included as well. This project written for blog post at [ogzhanolguncu.com](https://ogzhanolguncu.com/)
 
 ## Project Tree
 
