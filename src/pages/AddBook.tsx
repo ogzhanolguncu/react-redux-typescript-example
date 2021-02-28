@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useParams, useHistory } from 'react-router-dom';
 
 const AddBook = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id?: string }>();
   const history = useHistory();
   const dispatch = useAppDispatch();
   const book = useAppSelector((state) =>
@@ -35,9 +35,11 @@ const AddBook = () => {
   };
 
   const editBook = () => {
-    dispatch(updateBook({ author, title, id }));
-    clearInputs();
-    history.push('/');
+    if (id) {
+      dispatch(updateBook({ author, title, id }));
+      clearInputs();
+      history.push('/');
+    }
   };
 
   const clearInputs = () => {
@@ -59,7 +61,9 @@ const AddBook = () => {
           justifyContent="space-between"
           marginBottom="20px"
         >
-          <Heading color="white">Add Book</Heading>
+          <Heading color="white" data-testid="header">
+            {id ? 'Update Book' : 'Add Book'}
+          </Heading>
         </Box>
         <FormControl isRequired>
           <FormLabel color="white">Title</FormLabel>
